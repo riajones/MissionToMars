@@ -15,10 +15,9 @@ public class buildMenuBack : MonoBehaviour {
 	//re-enable movement
 	//turn the hud back on
 	void OnMouseDown(){
-		GameObject buildIcon = GameObject.Find ("buildIcon");
-		Camera.main.transform.position = buildIcon.GetComponent<build>().cameraWasHere;
-		Camera.main.transform.rotation = buildIcon.GetComponent<build>().camRot;
 		GameObject gameController = GameObject.Find ("Game_Controller");
+		Camera.main.transform.position = gameController.GetComponent<game_controller> ().cameraWasHere;
+		Camera.main.transform.rotation = gameController.GetComponent<game_controller> ().camRot;
 		gameController.GetComponent<game_controller> ().movement = true;
 		gameController.GetComponent<game_controller> ().isHud = true;
 

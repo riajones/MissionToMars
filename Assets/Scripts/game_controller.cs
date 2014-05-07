@@ -9,6 +9,10 @@ public class game_controller : MonoBehaviour {
 	public bool movement;
 	public bool isHud;
 	public bool overCrowd;
+
+	//Camera Locations
+	public Vector3 cameraWasHere;	//Keeps track of the cameras location before it is teleported to a menu
+	public Quaternion camRot;		//Keeps track of the cameras rotation before it is teleported to a menu
 	
 	//Timers
 	public int startTime;		//Keeps track of how long the game has been running

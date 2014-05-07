@@ -14,7 +14,7 @@ public class HUD_Controller : MonoBehaviour {
 	public GameObject oreVal;
 	public GameObject foodVal;
 	public GameObject waterVal;
-
+	
 	public GameObject popDisp;
 	public GameObject atmoDisp;
 	public GameObject oreDisp;
@@ -45,11 +45,11 @@ public class HUD_Controller : MonoBehaviour {
 		//Ensuring that all the HUD information is enabled if isHud is true
 		//then updates all their values to the current values
 		if(gameController.GetComponent<game_controller>().isHud){
-			popVal.guiText.enabled = true;
-			atmoVal.guiText.enabled = true;
-			oreVal.guiText.enabled = true;
-			foodVal.guiText.enabled = true;
-			waterVal.guiText.enabled = true;
+			popDisp.guiText.enabled = true;
+			atmoDisp.guiText.enabled = true;
+			oreDisp.guiText.enabled = true;
+			foodDisp.guiText.enabled = true;
+			waterDisp.guiText.enabled = true;
 
 			popVal.guiText.enabled = true;
 			atmoVal.guiText.enabled = true;
@@ -62,6 +62,7 @@ public class HUD_Controller : MonoBehaviour {
 			string populationDisplay = gameController.GetComponent<game_controller> ().population.ToString() + " / " + gameController.GetComponent<game_controller>().maxPopulation.ToString();
 			popVal.guiText.text = populationDisplay;
 
+
 			atmoVal.guiText.text = gameController.GetComponent<game_controller> ().atmosphere.ToString();
 			oreVal.guiText.text = gameController.GetComponent<game_controller> ().ore.ToString();
 			foodVal.guiText.text = gameController.GetComponent<game_controller> ().food.ToString();
@@ -69,11 +70,11 @@ public class HUD_Controller : MonoBehaviour {
 		}
 		//If HUD is not enabled, disable all associated objects
 		else{
-			popVal.guiText.enabled = false;
-			atmoVal.guiText.enabled = false;
-			oreVal.guiText.enabled = false;
-			foodVal.guiText.enabled = false;
-			waterVal.guiText.enabled = false;
+			popDisp.guiText.enabled = false;
+			atmoDisp.guiText.enabled = false;
+			oreDisp.guiText.enabled = false;
+			foodDisp.guiText.enabled = false;
+			waterDisp.guiText.enabled = false;
 
 			popVal.guiText.enabled = false;
 			atmoVal.guiText.enabled = false;

@@ -17,6 +17,7 @@ public class farm : MonoBehaviour {
 			Vector3 pos_move = Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, distance_to_screen));
 			transform.position = new Vector3(pos_move.x, 0f, pos_move.z);
 		}
+
 	}
 	//When the building is destroyed it stops producing resources
 	void OnDestroy(){

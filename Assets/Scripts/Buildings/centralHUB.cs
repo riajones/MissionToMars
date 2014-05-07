@@ -6,6 +6,7 @@ public class centralHUB : MonoBehaviour {
 	void start(){
 		placed = true;
 	}
+
 	void OnMouseDown(){
 		//This is the code that executes when the building is placed
 		if(placed == false){
