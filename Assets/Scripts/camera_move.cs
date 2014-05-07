@@ -1,6 +1,14 @@
 ﻿using UnityEngine;
 using System.Collections;
+/*
+This script controls the camera movement
 
+Every clock cycle it checks the mouse position, and then if the mouse is at or beyond
+a certain position on the screen the camera pans in that direction
+
+Additionally if the camera height is within certain limits the mousewheel can be used
+to control the camera height
+*/
 public class camera_move : MonoBehaviour {
 	public Vector3 cameraPos;
 	public bool move;
@@ -17,7 +25,7 @@ public class camera_move : MonoBehaviour {
 		if(move){
 			cameraPos = Camera.main.transform.position;
 			//Iser is scrolling Back
-			if (Input.GetAxis("Mouse ScrollWheel") < 0)
+			if (Input.GetAxis("Mouse ScrollWheel") < 0 && cameraPos.y < 100)
 				cameraPos.y++;
 			else if(Input.GetAxis ("Mouse ScrollWheel") > 0 && cameraPos.y > 10)
 				cameraPos.y--;

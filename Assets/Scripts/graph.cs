@@ -10,19 +10,17 @@ public class graph : MonoBehaviour {
 	int size;
 	bool maketheGraph = true;
 
-	void Start () {
-
-	
-	}
-
+	//Apparently objects that begin in the game world don't cause the start function to be called
+	//therefore I have the graph being made when the update function. I know this is super inefficient
+	//but it is a simple and obvious work around
 	void Update(){
 		if (maketheGraph == true) {
 			makeGraph();
 			maketheGraph = false;
-
 		}
 	}
 
+	//The name should be very self explanatory
 	void makeGraph(){
 		//Initializes world array
 		//All nodes have pointers to their neighbor nodes
@@ -57,13 +55,15 @@ public class graph : MonoBehaviour {
 
 	}
 
-
+	//This is an element used to represent any point on the map. The world graph is filled with Nodes
 	public class Node{
+		//Components
 		public int x;
 		public int z;
 		public string type;
 		int[] neighbors = new int[8];
 
+		//Constructor
 		public Node(int xcord, int zcord, int[] temps){
 			x = 250 - xcord;
 			z = 259 - zcord;
@@ -71,6 +71,7 @@ public class graph : MonoBehaviour {
 			for(int i = 0; i < 8; i++)
 				neighbors[i] = temps[i];
 		}
+		//Simple Access function
 		public void setType(string newType){
 			type = newType;
 		}
