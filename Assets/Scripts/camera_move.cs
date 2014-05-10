@@ -30,11 +30,11 @@ public class camera_move : MonoBehaviour {
 			else if(Input.GetAxis ("Mouse ScrollWheel") > 0 && cameraPos.y > 10)
 				cameraPos.y--;
 
-			if(Input.mousePosition.x >= 790 && Camera.main.transform.position.x < 250)
+			if(Input.mousePosition.x >= Screen.width - 10 && Camera.main.transform.position.x < 250)
 				cameraPos.x++;
 			else if(Input.mousePosition.x <= 10 && Camera.main.transform.position.x > -250)
 				cameraPos.x--;
-			if(Input.mousePosition.y >= 700 && Camera.main.transform.position.z < 250)
+			if(Input.mousePosition.y >= Screen.height - 10 && Camera.main.transform.position.z < 250)
 				cameraPos.z++;
 			else if(Input.mousePosition.y <= 10 && Camera.main.transform.position.z > -250)
 				cameraPos.z--;

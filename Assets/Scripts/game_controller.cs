@@ -9,6 +9,7 @@ public class game_controller : MonoBehaviour {
 	public bool movement;
 	public bool isHud;
 	public bool overCrowd;
+	public bool isMenu;
 
 	//Camera Locations
 	public Vector3 cameraWasHere;	//Keeps track of the cameras location before it is teleported to a menu
@@ -28,6 +29,16 @@ public class game_controller : MonoBehaviour {
 	public int water;
 	
 	public int maxPopulation;
+
+	//Items
+	public int farms;
+	public int greenhouses;
+	public int icemines;
+	public int mines;
+	public int barracks;
+	public int explorebases;
+	public int mirrorsatellites;
+	public int researchcenters;
 	
 	//Growth Rates
 	public float atmosphereGrow;
@@ -42,7 +53,7 @@ public class game_controller : MonoBehaviour {
 	public bool turboMode;		//If enabled doubles clock speed (intended for testing)
 	public float expeditionSuccessRate;
 	GameObject disasterText;
-	
+
 	//Sets up most of the games variables
 
 	void Start () {
@@ -60,12 +71,12 @@ public class game_controller : MonoBehaviour {
 		collectTimer = 0;
 		atmosphere = 0;
 
-		population = 10;
+
 		ore = 0;
-		food = 0;
-		water = 0;
+
 		maxPopulation = 50;
 		expeditionSuccessRate = 0.5f;
+		Invoke ("getCarry", 0.1f);
 		
 		//Initializing Increase Rates
 		atmosphereGrow = 1f;
@@ -84,14 +95,28 @@ public class game_controller : MonoBehaviour {
 		
 	}
 
+	void getCarry(){
+		GameObject carry = GameObject.Find("data_carry");
+		population = carry.GetComponent<dataCarry>().population;
+		food = carry.GetComponent<dataCarry>().food;
+		water = carry.GetComponent<dataCarry>().water;
+		farms = carry.GetComponent<dataCarry>().farms;
+		greenhouses = carry.GetComponent<dataCarry>().greenhouses;
+		icemines = carry.GetComponent<dataCarry>().icemines;
+		mines = carry.GetComponent<dataCarry>().mines;
+		barracks = carry.GetComponent<dataCarry>().barracks;
+		explorebases = carry.GetComponent<dataCarry>().explorebases;
+		mirrorsatellites = carry.GetComponent<dataCarry>().mirrorsatellites;
+		researchcenters = carry.GetComponent<dataCarry>().researchcenters;
 
+	}
 	
 	void Update () {
 
 		//Checking for End Conditions
 		if (atmosphere == 1000)
 			youWin ();
-		if (population == 0)
+		if (population == 0 && startTime > 3)
 			gameOver ();
 		//Checks for overcrowding
 		if(population >  maxPopulation)
@@ -99,7 +124,7 @@ public class game_controller : MonoBehaviour {
 		else{overCrowd = false;}
 		
 		//Removes DisasterText from the screen after a certain amount of time has passed
-		if (disasterText.guiText.text != " " && disasterTime > 10) 
+		if (disasterText.guiText.text != " " && disasterTime > 10 && !isMenu) 
 			disasterText.guiText.text = " ";
 		
 		
@@ -200,16 +225,19 @@ public class game_controller : MonoBehaviour {
 	
 	//Handles the timers
 	void tick(){
-		startTime++;
-		updateTime++;
-		disasterTime++;
-		collectTimer++;
-		//Turbo mode
-		if(turboMode){
+		if(!isMenu){
 			startTime++;
 			updateTime++;
 			disasterTime++;
 			collectTimer++;
+			//Turbo mode
+			if(turboMode){
+				startTime++;
+				updateTime++;
+				disasterTime++;
+				collectTimer++;
+			}
 		}
 	}
+
 }
