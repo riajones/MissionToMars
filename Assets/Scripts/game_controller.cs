@@ -147,10 +147,7 @@ public class game_controller : MonoBehaviour {
 		
 		
 	}
-	void Awake()
-	{
-		DontDestroyOnLoad(this);
-	}
+
 	//Determines and executes a disaster
 	void disasterStrikes(){
 		//Creating the splash screen

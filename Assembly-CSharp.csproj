@@ -62,6 +62,7 @@
      <Compile Include="Assets\Scripts\GUIStuff\HUD_Controller.cs" />
      <Compile Include="Assets\Scripts\Menu.cs" />
      <Compile Include="Assets\Scripts\camera_move.cs" />
+     <Compile Include="Assets\Scripts\dont_destroy.cs" />
      <Compile Include="Assets\Scripts\game_controller.cs" />
      <Compile Include="Assets\Scripts\graph.cs" />
   </ItemGroup>

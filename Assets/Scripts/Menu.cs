@@ -13,12 +13,7 @@ public class Menu : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {	
 	}
-/*
-	void Awake()
-	{
-		DontDestroyOnLoad(this);
-	}
-*/
+
 	//This script is unfinished, for now it will only start the game.
 	//Eventually it will selet button boxes and change variables
 	void OnMouseDown(){
