@@ -2,6 +2,7 @@
 using System.Collections;
 
 public class Menu : MonoBehaviour {
+
 	// Use this for initialization
 	GameObject gameController;
 

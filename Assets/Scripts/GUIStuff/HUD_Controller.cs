@@ -4,6 +4,8 @@ using System.Collections;
 public class HUD_Controller : MonoBehaviour {
 	//Declaring all the GameObject here to save a slight amount of computation
 	//in the update function
+	public bool tab;
+
 	public GameObject gameController;
 
 	public GameObject HUD;
@@ -23,6 +25,7 @@ public class HUD_Controller : MonoBehaviour {
 
 
 	void Start () {
+		tab = false;
 		gameController = GameObject.Find ("Game_Controller");
 
 		HUD = GameObject.Find ("HUD");
@@ -42,6 +45,7 @@ public class HUD_Controller : MonoBehaviour {
 	}
 	
 	void Update () {
+		//GUI.color = new Color(1,1,1,0.5f);
 		//Ensuring that all the HUD information is enabled if isHud is true
 		//then updates all their values to the current values
 		if(gameController.GetComponent<game_controller>().isHud){
@@ -85,6 +89,30 @@ public class HUD_Controller : MonoBehaviour {
 			HUD.guiTexture.enabled = false;
 			buildIcon.guiTexture.enabled = false;
 		}
+	}
+
+	//changes the transparency of the HUD
+	void OnGUI()
+	{
+
+
+		Color textureColor = guiTexture.color;
+
+		if (Input.GetKey ("tab")) {
+						
+			if (!tab) {
+				textureColor.a = 0.2f;
+				tab = true;
+				Debug.Log("foo");
+			}
+			else if(tab)
+			{
+				textureColor.a = 0.0f;//transparent
+				tab = false;
+				Debug.Log("bar");
+			}
+		}
+		guiTexture.color = textureColor;
 	}
 
 }
