@@ -14,16 +14,14 @@ public class Menu : MonoBehaviour {
 	void Update () {	
 	}
 
-	//This script is unfinished, for now it will only start the game.
-	//Eventually it will selet button boxes and change variables
+	//Start the game.
 	void OnMouseDown(){
-		if (this.gameObject.name == "B_People") {
+/*		if (this.gameObject.name == "B_People") {
 			renderer.material.color = Color.green;
 			gameController.GetComponent<game_controller>().population +=15;
 			Debug.Log(gameController.GetComponent<game_controller>().population);
 		}
-		//Debug.Log ("population" +(gameController.GetComponent<game_controller>().population));
-		//Debug.Log("The " + this.GameObject.name + " was clicked");
+*/
 		if(this.gameObject.name=="B_Send"){
 			Application.LoadLevel("MainGame");
 			renderer.material.color = Color.green;
